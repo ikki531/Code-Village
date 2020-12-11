@@ -1,0 +1,60 @@
+.menu-wrap {
+    margin-top: 11px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include sp {
+        flex-direction: column;
+    }
+}
+
+.menu-item {
+    width: 25%;
+    @include tab {
+        width: 30%;
+    }
+    @include sp {
+        width: 100%;
+        margin-top: 50px;
+    }
+    &-img {
+        width: 100%;
+        overflow: hidden;
+        }
+    &-title {
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+        margin-top: 37px;
+        text-align: center;
+        white-space: nowrap;
+        @include tab {
+            font-size: 2rem;
+        }
+        @include sp {
+            font-size: 3rem;
+            text-align: left;
+            margin-left: 13px;
+        }
+    }
+    &-text {
+        font-size: 1.6rem;
+        letter-spacing: 0.16rem;
+        margin-top: 34px;
+        padding: 0 10px;
+        @include sp {
+            padding: 0 24px 0 13px;
+        }
+    }
+    &-price {
+        font-size: 1.6rem;
+        letter-spacing: 0.16rem;
+        margin-top: 34px;
+        padding: 0 10px;
+        text-align: right;
+        white-space: nowrap;;
+        @include sp {
+            margin-top: 13px;
+            padding: 13px;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.first-view {
+    height: 100vh;
+    background-image: url(/img/component.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    position: relative;
+    @include tab {
+        background-size: cover;
+        background-position: top;
+    }
+    @include sp {
+        background-size: cover;
+        background-position: left;
+    }
+}
+
+.fv-wrap {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    font-size: 3.8rem;
+    @include pc {
+        height: 35vh;
+    }
+    @include tab {
+        left: 50%;
+        width: 100%;
+        color: white;
+        text-shadow: 0px 3px 16px black;
+    }
+    @include sp {
+        top: 45%;
+        height: 20vh;
+        flex-direction: column-reverse;
+    }
+    .catch-ja {
+        @include pc {
+            text-align: right;
+        }
+        @include sp {
+            font-size: 2.3rem;
+        }
+        letter-spacing: 0.38rem;
+    }
+    .catch-en {
+        line-height: 128px;
+        font-family: Zapfino;
+        letter-spacing: 0.38rem;
+        @include sp {
+            font-size: 2.8rem;
+        }
+    }
+}

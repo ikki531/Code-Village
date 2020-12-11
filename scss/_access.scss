@@ -1,0 +1,64 @@
+.access {
+    // height: 100vh;
+    background-color: $beige;
+    padding-bottom: 70px;
+    .title {
+        width: 80%;
+        margin: 0 auto;
+        // @include tab {
+        //     padding-top: 60px;
+        // }
+    }
+}
+
+.access-wrap {
+    background-color: $brown;
+    margin-top: 11px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include tab {
+        margin-top: 50px;
+        flex-direction: column-reverse;
+    }
+}
+
+.access-item {
+    width: 80%;
+    margin: 100px auto;
+    height: 190px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include tab {
+        width: 90%;
+        margin: 30px auto 60px;
+
+    }
+    &-title {
+        font-size: 2.4rem;
+        letter-spacing: 0.24rem;
+        color: #00000038;
+    }
+    &-text {
+        font-size: 1.6rem;
+        letter-spacing: 0.16rem;
+        color: white;
+    }
+}
+
+.access-map {
+    position: absolute;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    @include tab {
+        position: static;
+        width: 100%;
+        height: 35vh;
+    }
+    .g-map {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,90 @@
+header {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    top: 5%;
+    left: 5%;
+    @include tab {
+        justify-content: space-between;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @include sp {
+        transform: none;
+        position: static;
+        background-color: white;
+        height: 70px;
+        line-height: 70px;
+        margin: 0 20px;
+    }
+}
+
+.hd-logo {
+    font-size: 3.8rem;
+    letter-spacing: 0.38rem;
+    @include sp {
+        font-size: 2.2rem;
+    }
+}
+
+nav {
+    width: 381px;
+    margin-left: 20px;
+    @include tab {
+        display: none;
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.8rem;
+        // line-height: 1;
+    }
+    li {
+        letter-spacing: 0.18rem;
+        &:first-child:after {
+            content:"";
+            display:flex;
+            flex-direction: column;
+            width: 80%;
+            height: 1px;
+            background-color: #000000;
+        }
+        &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+            color: $gray;
+        }
+    }
+}
+
+.ham {
+    @include pc {
+        display: none;
+    }
+    @include tab {
+        width: 25px;
+        height: 25px;
+    }
+    @include sp {
+        width: 16px;
+        height: 14px;
+    }
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    span {
+        display: inline-block;
+        width: 100%;
+        @include tab {
+            height: 4px;
+            background-color: #ddd;
+        }
+        @include sp {
+            height: 2px;
+            background-color: #3b4043;
+        }
+        &:last-child {
+            width: 50%;
+        }
+    }
+}
