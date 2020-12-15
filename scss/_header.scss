@@ -30,7 +30,7 @@ header {
 }
 
 nav {
-    width: 381px;
+    width: 392px;
     margin-left: 20px;
     @include tab {
         display: none;
@@ -38,8 +38,8 @@ nav {
     ul {
         display: flex;
         justify-content: space-between;
-        font-size: 1.8rem;
-        // line-height: 1;
+        font-size: 1.7rem;
+        line-height: 1;
     }
     li {
         letter-spacing: 0.18rem;

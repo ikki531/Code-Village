@@ -91,10 +91,6 @@ video {
   background: transparent;
 }
 
-body {
-  line-height: 1;
-}
-
 article,
 aside,
 details,
@@ -284,7 +280,7 @@ header {
 }
 
 nav {
-  width: 381px;
+  width: 392px;
   margin-left: 20px;
 }
 
@@ -301,7 +297,8 @@ nav ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  line-height: 1;
 }
 
 nav li {
@@ -384,7 +381,7 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
 
 .first-view {
   height: 100vh;
-  background-image: url(/img/component.png);
+  background-image: url(../img/component.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -556,6 +553,7 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
   .concept-text .catch-ja {
     width: 100%;
     text-align: center;
+    text-indent: 1.6rem;
   }
 }
 
@@ -574,7 +572,7 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
 
 @media screen and (max-width: 959px) {
   .concept-text .text {
-    width: 100%;
+    width: 102.5%;
     margin-top: 18px;
   }
 }

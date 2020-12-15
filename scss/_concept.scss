@@ -41,6 +41,7 @@
         @include tab {
             width: 100%;
             text-align: center;
+            text-indent: 1.6rem;
         }
         @include sp {
             font-size: 1.8rem;
@@ -52,7 +53,7 @@
         overflow: hidden;
         letter-spacing: 0.16rem;
         @include tab {
-            width: 100%;
+            width: 102.5%;
             margin-top: 18px;
         }
     }
