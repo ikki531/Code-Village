@@ -20,6 +20,11 @@
     &-img {
         width: 100%;
         overflow: hidden;
+        transition: 0.5s;
+        & :hover {
+            transition: 0.5s;
+            transform: scale(1.2) rotate(10deg);
+        }
         }
     &-title {
         font-size: 3rem;
