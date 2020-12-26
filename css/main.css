@@ -481,6 +481,13 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
   background: linear-gradient(to bottom, #A193861F 0, #A193861F 42%, #A1938689 42%, #A1938689 100%);
 }
 
+@media screen and (max-width: 959px) {
+  .concept {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A193861F), color-stop(32%, #A193861F), color-stop(32%, #A1938689), to(#A1938689));
+    background: linear-gradient(to bottom, #A193861F 0, #A193861F 32%, #A1938689 32%, #A1938689 100%);
+  }
+}
+
 .concept-img-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -554,6 +561,7 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
     width: 100%;
     text-align: center;
     text-indent: 1.6rem;
+    letter-spacing: 0.72rem;
   }
 }
 

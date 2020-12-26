@@ -1,5 +1,11 @@
 .concept {
     background: linear-gradient(to bottom, $beige 0, $beige 42%, $brown 42%, $brown 100%);
+    @include tab {
+        background: linear-gradient(to bottom, $beige 0, $beige 32%, $brown 32%, $brown 100%);
+    }
+    // @include sp {
+    //     background: linear-gradient(to bottom,$beige 0, $beige 25%, $brown 25%, $brown 100%);
+    // }
 }
 
 .concept-img-wrap {
@@ -42,6 +48,7 @@
             width: 100%;
             text-align: center;
             text-indent: 1.6rem;
+            letter-spacing: 0.72rem;
         }
         @include sp {
             font-size: 1.8rem;
