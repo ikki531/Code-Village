@@ -1,4 +1,4 @@
-.concept {
+#concept {
     background: linear-gradient(to bottom, $beige 0, $beige 42%, $brown 42%, $brown 100%);
     @include tab {
         background: linear-gradient(to bottom, $beige 0, $beige 32%, $brown 32%, $brown 100%);

@@ -1,16 +1,16 @@
-header {
+.hd-main {
     display: flex;
     align-items: center;
     position: absolute;
     z-index: 10;
     top: 5%;
     left: 5%;
-    @include tab {
-        justify-content: space-between;
-        width: 90%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+    // @include tab {
+    //     justify-content: space-between;
+    //     width: 90%;
+    //     left: 50%;
+    //     transform: translate(-50%, -50%);
+    // }
     @include sp {
         transform: none;
         position: static;
@@ -18,6 +18,10 @@ header {
         height: 70px;
         line-height: 70px;
         margin: 0 20px;
+    }
+    @media screen and (min-width: 601px) and (max-width: 959px) {
+        top: 3%;
+        left: 3%;
     }
 }
 
@@ -42,49 +46,243 @@ nav {
         line-height: 1;
     }
     li {
+        position: relative;
         letter-spacing: 0.18rem;
-        &:first-child:after {
-            content:"";
-            display:flex;
-            flex-direction: column;
-            width: 80%;
-            height: 1px;
-            background-color: #000000;
+        color: $gray;
+        // &:first-child {
+        //     color: black;
+        // }
+        // &:first-child:after {
+        //     content: "";
+        //     display: flex;
+        //     flex-direction: column;
+        //     width: 80%;
+        //     height: 1px;
+        //     background-color: #000000;
+        // }
+        &:hover {
+            color: black;
         }
-        &:nth-child(2), &:nth-child(3), &:nth-child(4) {
-            color: $gray;
+        a {
+            &:after {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                content: "";
+                width: 0%;
+                height: 1px;
+                background: #000;
+                transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+            &:hover::after{
+                width: 80%;
+            }
+        // &:first-child:after {
+        //     content:"";
+        //     display:flex;
+        //     flex-direction: column;
+        //     width: 80%;
+        //     height: 1px;
+        //     background-color: #000000;
+        // }
+        // &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        //     color: $gray;
+        // }
         }
     }
 }
 
-.ham {
+// .ham {
+//     @include pc {
+//         display: none;
+//     }
+//     @include tab {
+//         width: 25px;
+//         height: 25px;
+//     }
+//     @include sp {
+//         width: 16px;
+//         height: 14px;
+//     }
+//     display: flex;
+//     justify-content: space-between;
+//     flex-direction: column;
+//     span {
+//         display: inline-block;
+//         width: 100%;
+//         @include tab {
+//             height: 4px;
+//             background-color: #ddd;
+//         }
+//         @include sp {
+//             height: 2px;
+//             background-color: #3b4043;
+//         }
+//         &:last-child {
+//             width: 50%;
+//         }
+//     }
+// }
+
+
+//:::::::::::::::::::::::::::::::::::::::::://
+
+// .hamburger-menu {
+//     position: relative;
+// }
+
+.menu-btn {
+    // position: absolute;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color:rgba(0, 0, 0, 0);
     @include pc {
         display: none;
     }
-    @include tab {
-        width: 25px;
-        height: 25px;
-    }
     @include sp {
-        width: 16px;
-        height: 14px;
+        top: 5px;
+        right: 5px;
     }
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    span {
-        display: inline-block;
+}
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: black;
+    position: absolute;
+    @include sp {
+        height: 3px;
+        width: 20px;
+        border-radius: 2px;
+    }
+}
+
+.menu-btn span:before {
+    bottom: 8px;
+    @include sp {
+        bottom: 6px;
+    }
+}
+
+.menu-btn span:after {
+    top: 8px;
+    width: 55%;
+    @include sp {
+        top: 6px;
+    }
+}
+
+#menu-btn-check:checked~.menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+    /*メニューオープン時は真ん中の線を透明にする*/
+}
+
+#menu-btn-check:checked~.menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#menu-btn-check:checked~.menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    width: 100%;
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+
+.menu-content {
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: white;
+    @include pc {
+        display: none;
+    }
+}
+
+.menu-content ul {
+    padding: 80px 30px 0;
+}
+
+.menu-content ul li {
+    border-bottom: solid 1px white;
+    list-style: none;
+}
+
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    letter-spacing: 0.2rem;
+    box-sizing: border-box;
+    color: $gray;
+    &:hover {
+        color: black;
+    }
+    &:after {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        display: block;
+        content: "";
+        width: 0%;
+        height: 1.5px;
+        background: #000;
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    &:hover::after {
         width: 100%;
-        @include tab {
-            height: 4px;
-            background-color: #ddd;
-        }
-        @include sp {
-            height: 2px;
-            background-color: #3b4043;
-        }
-        &:last-child {
-            width: 50%;
-        }
     }
+    text-decoration: none;
+    padding: 30px 0px 0px 0px;
+    position: relative;
+}
+
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px black;
+    border-right: solid 2px black;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 10px;
+    top: 35px;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color:rgba(255, 255, 255, 0.8);
+    transition: all 0.5s;
+    /*アニメーション設定*/
+}
+
+#menu-btn-check:checked~.menu-content {
+    left: 0;
+    /*メニューを画面内へ*/
 }

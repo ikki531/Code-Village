@@ -9,29 +9,53 @@
 </head>
 <body>
     <header>
-        <h1 class="hd-logo">SALON BEPPU</h1>
-        <div class="ham">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="hd-main">
+            <h1 class="hd-logo">SALON BEPPU</h1>
+            <!-- <div class="ham">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> -->
+            <nav>
+                <ul>
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#concept">CONCEPT</a></li>
+                    <li><a href="#access">ACCESS</a></li>
+                    <li><a href="#">RESERVE</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li>MENU</li>
-                <li>CONCEPT</li>
-                <li>ACCESS</li>
-                <li>RESERVE</li>
-            </ul>
-        </nav>
+        <div class="hamburger-menu">
+            <input type="checkbox" id="menu-btn-check">
+            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+            <!--ここからメニュー-->
+            <div class="menu-content">
+                <ul>
+                    <li>
+                        <a href="#">MENU</a>
+                    </li>
+                    <li>
+                        <a href="#concept">CONCEPT</a>
+                    </li>
+                    <li>
+                        <a href="#access">ACCESS</a>
+                    </li>
+                    <li>
+                        <a href="#">RESERVE</a>
+                    </li>
+                </ul>
+            </div>
+            <!--ここまでメニュー-->
+        </div>
     </header>
     <main>
-        <section class="first-view">
+        <section id="first-view">
             <div class="fv-wrap">
                 <p class="catch-ja">髪は、大事です。</p>
                 <p class="catch-en">We need Hair.</p>
             </div>
         </section>
-        <section class="concept">
+        <section id="concept">
             <div class="inner">
                 <h2 class="title">CONCEPT</h2>
                 <div class="concept-img-wrap">
@@ -48,7 +72,7 @@
                 </div>
             </div>
         </section>
-        <section class="menu">
+        <section id="menu">
             <div class="inner">
                 <h2 class="title">MENU</h2>
                 <div class="menu-wrap">
@@ -73,7 +97,7 @@
                 </div>
             </div>
         </section>
-        <section class="access">
+        <section id="access">
                 <h2 class="title">ACCESS</h2>
                 <div class="access-wrap">
                     <div class="access-item">

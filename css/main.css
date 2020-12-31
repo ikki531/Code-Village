@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 
 html5doctor.com Reset Stylesheet
 v1.6.1
@@ -184,6 +185,7 @@ select {
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 .inner {
@@ -231,7 +233,7 @@ html {
   }
 }
 
-header {
+.hd-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,20 +246,8 @@ header {
   left: 5%;
 }
 
-@media screen and (max-width: 959px) {
-  header {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 90%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-  }
-}
-
 @media screen and (max-width: 600px) {
-  header {
+  .hd-main {
     -webkit-transform: none;
             transform: none;
     position: static;
@@ -265,6 +255,13 @@ header {
     height: 70px;
     line-height: 70px;
     margin: 0 20px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 959px) {
+  .hd-main {
+    top: 3%;
+    left: 3%;
   }
 }
 
@@ -302,84 +299,221 @@ nav ul {
 }
 
 nav li {
+  position: relative;
   letter-spacing: 0.18rem;
-}
-
-nav li:first-child:after {
-  content: "";
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 80%;
-  height: 1px;
-  background-color: #000000;
-}
-
-nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
   color: #707070;
 }
 
-.ham {
+nav li:hover {
+  color: black;
+}
+
+nav li a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  content: "";
+  width: 0%;
+  height: 1px;
+  background: #000;
+  -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+nav li a:hover::after {
+  width: 80%;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  height: 60px;
+  width: 60px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 @media screen and (min-width: 960px) {
-  .ham {
+  .menu-btn {
     display: none;
   }
 }
 
-@media screen and (max-width: 959px) {
-  .ham {
-    width: 25px;
-    height: 25px;
+@media screen and (max-width: 600px) {
+  .menu-btn {
+    top: 5px;
+    right: 5px;
   }
+}
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: black;
+  position: absolute;
 }
 
 @media screen and (max-width: 600px) {
-  .ham {
-    width: 16px;
-    height: 14px;
+  .menu-btn span,
+  .menu-btn span:before,
+  .menu-btn span:after {
+    height: 3px;
+    width: 20px;
+    border-radius: 2px;
   }
 }
 
-.ham span {
-  display: inline-block;
+.menu-btn span:before {
+  bottom: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-btn span:before {
+    bottom: 6px;
+  }
+}
+
+.menu-btn span:after {
+  top: 8px;
+  width: 55%;
+}
+
+@media screen and (max-width: 600px) {
+  .menu-btn span:after {
+    top: 6px;
+  }
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+  background-color: rgba(255, 255, 255, 0);
+  /*メニューオープン時は真ん中の線を透明にする*/
+}
+
+#menu-btn-check:checked ~ .menu-btn span::before {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   width: 100%;
 }
 
-@media screen and (max-width: 959px) {
-  .ham span {
-    height: 4px;
-    background-color: #ddd;
+#menu-btn-check {
+  display: none;
+}
+
+.menu-content {
+  width: 100%;
+  height: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  background-color: white;
+}
+
+@media screen and (min-width: 960px) {
+  .menu-content {
+    display: none;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .ham span {
-    height: 2px;
-    background-color: #3b4043;
-  }
+.menu-content ul {
+  padding: 80px 30px 0;
 }
 
-.ham span:last-child {
-  width: 50%;
+.menu-content ul li {
+  border-bottom: solid 1px white;
+  list-style: none;
 }
 
-.first-view {
+.menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #707070;
+  text-decoration: none;
+  padding: 30px 0px 0px 0px;
+  position: relative;
+}
+
+.menu-content ul li a:hover {
+  color: black;
+}
+
+.menu-content ul li a:after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  display: block;
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background: #000;
+  -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.menu-content ul li a:hover::after {
+  width: 100%;
+}
+
+.menu-content ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  position: absolute;
+  right: 10px;
+  top: 35px;
+}
+
+.menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  /*leftの値を変更してメニューを画面外へ*/
+  z-index: 80;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  /*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+  left: 0;
+  /*メニューを画面内へ*/
+}
+
+#first-view {
   height: 100vh;
   background-image: url(../img/component.png);
   background-size: contain;
@@ -389,14 +523,14 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
 }
 
 @media screen and (max-width: 959px) {
-  .first-view {
+  #first-view {
     background-size: cover;
     background-position: top;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .first-view {
+  #first-view {
     background-size: cover;
     background-position: left;
   }
@@ -476,13 +610,13 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
   }
 }
 
-.concept {
+#concept {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A193861F), color-stop(42%, #A193861F), color-stop(42%, #A1938689), to(#A1938689));
   background: linear-gradient(to bottom, #A193861F 0, #A193861F 42%, #A1938689 42%, #A1938689 100%);
 }
 
 @media screen and (max-width: 959px) {
-  .concept {
+  #concept {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #A193861F), color-stop(32%, #A193861F), color-stop(32%, #A1938689), to(#A1938689));
     background: linear-gradient(to bottom, #A193861F 0, #A193861F 32%, #A1938689 32%, #A1938689 100%);
   }
@@ -687,12 +821,12 @@ nav li:nth-child(2), nav li:nth-child(3), nav li:nth-child(4) {
   }
 }
 
-.access {
+#access {
   background-color: #A193861F;
   padding-bottom: 70px;
 }
 
-.access .title {
+#access .title {
   width: 80%;
   margin: 0 auto;
 }
